@@ -2,7 +2,9 @@
 
 using namespace std;
 
-enum weekday {kMonday, kTuesday};
+typedef enum {
+  kMonday, kTuesday, kWednesday, kThursday, kFriday, kSaturday, kSunday
+} weekday;
 
 int main()
 {
