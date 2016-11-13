@@ -25,7 +25,7 @@ namespace Records {
     void displayFormer();
     
   protected:
-    Employee mEmployee[kMaxEmployees];
+    Employee mEmployees[kMaxEmployees];
     int      mNextSlot;
     int      mNextEmployeeNumber;
   };

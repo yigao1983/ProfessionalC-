@@ -47,8 +47,8 @@ namespace Records {
   Employee &Database::getEmployee(string inFirstName, string inLastName)
   {
     for (int i = 0; i < mNextSlot; i++) {
-      if (mEmployees[i].getFirstName == inFirstName &&
-	  mEmployees[i].getLastName == inLastName) {
+      if (mEmployees[i].getFirstName() == inFirstName &&
+	  mEmployees[i].getLastName() == inLastName) {
 	return mEmployees[i];
       }
     }
@@ -59,14 +59,14 @@ namespace Records {
   
   void Database::displayAll()
   {
-    for (int i = 0; i < mNextSolot; i++) {
+    for (int i = 0; i < mNextSlot; i++) {
       mEmployees[i].display();
     }
   }
   
   void Database::displayCurrent()
   {
-    for (int i = 0; i < mNextSolot; i++) {
+    for (int i = 0; i < mNextSlot; i++) {
       if (mEmployees[i].getIsHired()) {
 	mEmployees[i].display();
       }
@@ -75,12 +75,10 @@ namespace Records {
   
   void Database::displayFormer()
   {
-    for (int i = 0; i < mNextSolot; i++) {
+    for (int i = 0; i < mNextSlot; i++) {
       if (!mEmployees[i].getIsHired()) {
 	mEmployees[i].display();
       }
     }
   }
 }
-
-#endif
