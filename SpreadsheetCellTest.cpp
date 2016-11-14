@@ -12,7 +12,7 @@ int main()
   cout << "cell 2: " << anotherCell.getString() << endl;
   cout << "cell 3: " << aThirdCell.getString() << endl;
   
-  SpreadsheetCell cells[3];// = {SpreadsheetCell(0), SpreadsheetCell(1), SpreadsheetCell(3)};
+  SpreadsheetCell cells[3] = {SpreadsheetCell(0), SpreadsheetCell(1), SpreadsheetCell(3)};
   
   for (int i = 0; i < 3; i++) {
     cout << cells[i].getValue() << endl;

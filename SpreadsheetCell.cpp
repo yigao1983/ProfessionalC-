@@ -3,18 +3,17 @@
 #include <sstream>
 #include "SpreadsheetCell.hpp"
 
-SpreadsheetCell::SpreadsheetCell() : mValue(0), mString("")
+SpreadsheetCell::SpreadsheetCell() :
+  mValue(0), mString("")
 {}
 
-SpreadsheetCell::SpreadsheetCell(double initialValue)
-{
-  setValue(initialValue);
-}
+SpreadsheetCell::SpreadsheetCell(double initialValue) :
+  mValue(initialValue), mString(doubleToString(mValue))
+{}
 
-SpreadsheetCell::SpreadsheetCell(string initialString)
-{
-  setString(initialString);
-}
+SpreadsheetCell::SpreadsheetCell(string initialString) :
+  mValue(stringToDouble(initialString)), mString(initialString)
+{}
 
 void SpreadsheetCell::setValue(double inValue)
 {
