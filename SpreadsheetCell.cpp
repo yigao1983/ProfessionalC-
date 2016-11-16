@@ -6,7 +6,7 @@
 SpreadsheetCell::SpreadsheetCell() :
   mValue(0), mString("")
 {}
-
+/*
 SpreadsheetCell::SpreadsheetCell(double initialValue) :
   mValue(initialValue), mString(doubleToString(mValue))
 {}
@@ -62,7 +62,7 @@ const SpreadsheetCell SpreadsheetCell::operator/(const SpreadsheetCell &cell) co
   }
   return newCell;
 }
-
+*/
 void SpreadsheetCell::set(double inValue)
 {
   mValue = inValue;
@@ -79,12 +79,12 @@ double SpreadsheetCell::getValue() const
 {
   return mValue;
 }
-
+*/
 string SpreadsheetCell::getString() const
 {
   return mString;
 }
-*/
+
 string SpreadsheetCell::doubleToString(double inValue)
 {
   ostringstream ostr;
@@ -104,7 +104,7 @@ double SpreadsheetCell::stringToDouble(const string &inString)
   }
   return temp;
 }
-
+/*
 bool checkSpreadsheetCell(const SpreadsheetCell &cell)
 {
   return SpreadsheetCell::stringToDouble(cell.mString) == cell.mValue;
@@ -141,3 +141,4 @@ const SpreadsheetCell operator/(const SpreadsheetCell &lhs, const SpreadsheetCel
   }
   return newCell;
 }
+*/
