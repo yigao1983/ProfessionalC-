@@ -4,7 +4,7 @@ StringSpreadsheetCell::StringSpreadsheetCell() :
   mValue("NA")
 {}
 
-void StringSpreadsheetCell::set(const string inString)
+void StringSpreadsheetCell::set(const string &inString)
 {
   mValue = inString;
 }
