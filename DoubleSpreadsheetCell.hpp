@@ -2,6 +2,7 @@
 #define DOUBLESPREADSHEETCELL
 
 #include <string>
+#include "SpreadsheetCell.hpp"
 
 using namespace std;
 
