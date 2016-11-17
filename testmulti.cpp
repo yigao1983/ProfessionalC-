@@ -2,9 +2,18 @@
 
 using namespace std;
 
-class Dog
+class Animal
 {
 public:
+  virtual ~Animal() {}
+  
+  virtual void eat() = 0;
+};
+
+class Dog : public Animal
+{
+public:
+  
   virtual void bark()
   { cout << "Woof!" << endl; }
   
@@ -12,9 +21,10 @@ public:
   { cout << "The dog eats." << endl; }
 };
 
-class Bird
+class Bird : public Animal
 {
 public:
+  
   virtual void chirp()
   { cout << "Chirp!" << endl; }
   
@@ -23,7 +33,11 @@ public:
 };
 
 class DogBird : public Dog, public Bird
-{};
+{
+public:
+  virtual void eat()
+  { Dog::eat(); }
+};
 
 int main()
 {
@@ -32,7 +46,7 @@ int main()
   confusedAnimal.bark();
   confusedAnimal.chirp();
   
-  // confusedAnimal.eat(); // This will not compile
+  confusedAnimal.eat();
   
   return 0;
 }
