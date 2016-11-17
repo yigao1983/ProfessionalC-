@@ -14,9 +14,13 @@ int main(int argc, char **argv)
     cout << str << endl;
   }
   */
-  
+  /*
   while (fp.peek() != EOF) {
     getline(fp, str);
+    cout << str << endl;
+  }
+  */
+  while (getline(fp, str)) {
     cout << str << endl;
   }
   
