@@ -6,19 +6,20 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-  chrono::steady_clock::time_point t_beg;
-  chrono::steady_clock::time_point t_end;
+  using namespace chrono;
   
-  t_beg = chrono::steady_clock::now();
+  steady_clock::time_point t_beg;
+  steady_clock::time_point t_end;
   
-  for (int i = 0; i < INT_MAX; ++i) {
+  t_beg = steady_clock::now();
+  
+  for (int i = 0; i < 1000000000; ++i) {
     i*i;
   }
   
-  t_end = chrono::steady_clock::now();
+  t_end = steady_clock::now();
   
-  cout << INT_MAX << endl;
-  cout << chrono::duration_cast<chrono::microseconds>(t_end-t_beg).count() << endl;
+  cout << duration_cast<nanoseconds>(t_end-t_beg).count() << endl;
   
   return 0;
 }
