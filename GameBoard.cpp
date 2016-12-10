@@ -41,3 +41,36 @@ void GameBoard::copyFrom(const GameBoard &src)
     }
   }
 }
+
+GameBoard &GameBoard::operator=(const GameBoard &rhs)
+{
+  // Check for self-assignment
+  if (this == &rhs) {
+    return *this;
+  }
+  // Free the old memory
+  for (int i = 0; i < mWidth; i++) {
+    delete[] mCells[i];
+  }
+  delete[] mCells;
+  
+  // Copy the new memory
+  copyFrom(rhs);
+  
+  return *this;
+}
+
+void GameBoard::setPieceAt(int x, int y, const GamePiece &inElem)
+{
+  mCells[x][y] = inElem;
+}
+
+GamePiece &GameBoard::getPieceAt(int x, int y)
+{
+  return mCells[x][y];
+}
+
+const GamePiece &GameBoard::getPieceAt(int x, int y) const
+{
+  return mCells[x][y];
+}
