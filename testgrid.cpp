@@ -12,7 +12,7 @@ int main(int argc, char **argv)
   myIntGrid.setElementAt(0, 0, 10);
   int x = myIntGrid.getElementAt(0, 0);
   
-  std::cout << x << std::endl;
+  std::cout << myIntGrid << std::endl;
   
   Grid<int> grid2(myIntGrid);
   Grid<int> anotherIntGrid;

@@ -1,6 +1,16 @@
 #ifndef GRID_HPP
 #define GRID_HPP
 
+#include <iostream>
+
+using std::ostream;
+
+template <typename T>
+class Grid;
+
+template <typename T>
+ostream &operator<<(ostream &ostr, const Grid<T> &grid);
+
 // Grid.hpp
 template <typename T>
 class Grid
@@ -23,6 +33,8 @@ public:
   static const int kDefaultWidth = 10;
   static const int kDefaultHeight = 10;
   
+  friend ostream &operator<<<T>(ostream &ostr, const Grid<T> &grid);
+  
 protected:
   void copyFrom(const Grid<T> &src);
   template <typename E>
@@ -39,6 +51,9 @@ Grid<T>::Grid(int inWidth, int inHeight) :
   
   for (int i = 0; i < mWidth; i++) {
     mCells[i] = new T[mHeight];
+    for (int j = 0; j < mHeight; j++) {
+      mCells[i][j] = T();
+    }
   }
 }
 
@@ -159,6 +174,18 @@ template <typename T>
 const T &Grid<T>::getElementAt(int x, int y) const
 {
   return mCells[x][y];
+}
+
+template <typename T>
+std::ostream &operator<<(std::ostream &ostr, const Grid<T> &grid)
+{
+  for (int i = 0; i < grid.getHeight(); i++) {
+    for (int j = 0; j < grid.getWidth(); j++) {
+      ostr << grid.getElementAt(j, i) << "\t";
+    }
+    ostr << std::endl;
+  }
+  return ostr;
 }
 
 #endif
